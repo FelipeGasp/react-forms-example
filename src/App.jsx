@@ -13,7 +13,7 @@ function App() {
     about: '',
   })
   function handleChanges (event) {
-    setValues({...values, [event.target.name]:[event.target.value]})
+    setValues({...values, [event.target.name]:event.target.value})
   }
   function handleSubmit (event) {
     event.preventDefault()
