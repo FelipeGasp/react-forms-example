@@ -25,9 +25,14 @@ function App() {
         var dateComponent = new Date();
         var dataAtual = `${dateComponent.getDate()}/${dateComponent.getMonth()+1}/${dateComponent.getFullYear()} as ${dateComponent.getHours()}:${dateComponent.getMinutes()}`
         console.log("Chamado aberto em :" + dataAtual)
+      }else{
+        throw new Error()
       }
-    })
-  }
+    }).catch(error => {
+      console.error('Erro ao abrir chamado')
+      console.warn(error)
+  })
+}
   function resetFun () {
     setValues({firstname: '',lastname: '',email:'',gender:'',phone_number:'',subject:'', file_attached:'',about:'  '})
   }
