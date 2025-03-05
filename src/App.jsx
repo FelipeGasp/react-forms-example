@@ -29,8 +29,11 @@ function App() {
         throw new Error()
       }
     }).catch(error => {
-      console.error('Erro ao abrir chamado')
-      console.warn(error)
+      var warnMsg = error['message']
+      if(warnMsg === 'Network Error'){
+        console.warn('Estamos com problemas no servidor, contate administrador do sistema')
+      }
+      console.error('Erro ao abrir chamado:', error)
   })
 }
   function resetFun () {
