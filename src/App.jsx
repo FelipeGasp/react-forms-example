@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import axios from 'axios'
+
 
 function App() {
   const[values,setValues] = useState({
@@ -17,6 +19,7 @@ function App() {
   }
   function handleSubmit (event) {
     event.preventDefault()
+    axios.post('http://localhost:8001/tickets',values)
     console.log(values)
   }
   function resetFun () {
