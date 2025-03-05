@@ -20,7 +20,13 @@ function App() {
   function handleSubmit (event) {
     event.preventDefault()
     axios.post('http://localhost:8001/tickets',values)
-    console.log(values)
+    .then(response =>{
+      if(response.status === 201){
+        var dateComponent = new Date();
+        var dataAtual = `${dateComponent.getDate()}/${dateComponent.getMonth()+1}/${dateComponent.getFullYear()} as ${dateComponent.getHours()}:${dateComponent.getMinutes()}`
+        console.log("Chamado aberto em :" + dataAtual)
+      }
+    })
   }
   function resetFun () {
     setValues({firstname: '',lastname: '',email:'',gender:'',phone_number:'',subject:'', file_attached:'',about:'  '})
